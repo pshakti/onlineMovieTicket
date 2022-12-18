@@ -7,10 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 
+
 @Data
-@NoArgsConstructor
-@Document("auditorium")
 public class Auditorium {
+    private String screenId;
 
     private String auditoriumName;
 

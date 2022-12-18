@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface TheatreService {
     List<Theatre> getAllTheatres();
-    String addNewTheatre(AddNewTheaterRequest newTheatre) throws ServiceUnavailableException;
+    Theatre addNewTheatre(AddNewTheaterRequest newTheatre) throws ServiceUnavailableException;
 }

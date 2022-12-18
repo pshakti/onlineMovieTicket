@@ -27,8 +27,8 @@ public class MovieController {
 
     @PostMapping("/movies")
     public ResponseEntity addMoviesDetails(@RequestBody MovieDto movieDto) throws ServiceUnavailableException {
-        movieService.addMovie(movieDto);
-        return ResponseEntity.created(URI.create("")).body("New movie has been added successfully");
+      Movie movie=  movieService.addMovie(movieDto);
+        return ResponseEntity.created(URI.create("")).body(movie);
     }
 
     @GetMapping("/movies")

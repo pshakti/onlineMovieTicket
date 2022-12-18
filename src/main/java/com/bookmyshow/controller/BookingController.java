@@ -2,6 +2,7 @@ package com.bookmyshow.controller;
 
 import com.bookmyshow.entity.Booking;
 import com.bookmyshow.model.BookingDto;
+import com.bookmyshow.model.BookingResponse;
 import com.bookmyshow.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +28,10 @@ public class BookingController {
         return bookingService.getAllBookings();
     }
 
-    @PostMapping
+    @PostMapping("/bookings")
     public ResponseEntity bookMovie(@RequestBody BookingDto bookingDto)
     {
-        bookingService.bookNewMovie(bookingDto);
-        return ResponseEntity.created(URI.create("")).body("New theater has been added successfully");
+        BookingResponse response=bookingService.bookNewMovie(bookingDto);
+        return ResponseEntity.created(URI.create("")).body(response);
     }
 }

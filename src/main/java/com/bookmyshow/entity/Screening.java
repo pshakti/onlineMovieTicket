@@ -9,6 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Screening {
     private String theaterName;
+    private String theaterId;
     private String city;
     private List<ShowDetails> show;
 }

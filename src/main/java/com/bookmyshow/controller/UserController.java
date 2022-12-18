@@ -30,7 +30,7 @@ public class UserController {
 
     @PostMapping("/registerUser")
     public ResponseEntity registerUser(@RequestBody UserDto userDto) throws ServiceUnavailableException {
-        userService.registerUser(userDto);
-        return ResponseEntity.created(URI.create("")).body("New user has been added successfully");
+        User user= userService.registerUser(userDto);
+        return ResponseEntity.created(URI.create("")).body(user);
     }
 }

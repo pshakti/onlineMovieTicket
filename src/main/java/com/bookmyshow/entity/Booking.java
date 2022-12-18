@@ -1,11 +1,13 @@
 package com.bookmyshow.entity;
 
+import com.bookmyshow.model.SeatBookedDto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
@@ -13,18 +15,26 @@ import java.time.LocalTime;
 @Document("booking")
 public class  Booking {
     @Id
-    @Field("_id")
-    private String id;
+    private String bookId;
 
-    private Screening screening;
+    private String movieId;
 
-    private User user;
+    private String theaterId;
+
+    private String screeningId;
+
+    private String userId;
+
+    private LocalDate showDate;
+
+    private Double showTime;
 
     private LocalTime bookingTime;
 
-    private boolean isBooked;
+    private String status;
 
     private boolean isActive;
 
-    private SeatBooked bookedSeats;
+    private double amount;
+    private SeatBookedDto bookedSeats;
 }

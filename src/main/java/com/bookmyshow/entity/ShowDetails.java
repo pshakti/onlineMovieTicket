@@ -8,15 +8,9 @@ import java.util.Set;
 @Data
 public class ShowDetails {
 
-    private String auditoriumName;
-
+   // private String auditoriumName;
+   private String screeningId;
     private LocalDate date;
 
-    private Set<Double> times;
-
-    private Boolean isFull;
-
-    private Double price;
-
-
+    private Set<Timings> times;
 }

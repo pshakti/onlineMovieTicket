@@ -11,7 +11,7 @@ public interface UserService {
     List<User> getAllUsers();
 
 
-    void registerUser(UserDto newUser) throws ServiceUnavailableException;
+    User registerUser(UserDto newUser) throws ServiceUnavailableException;
 
 
 }

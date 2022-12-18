@@ -13,7 +13,7 @@ public interface MovieService {
 
     Movie getMovieById(String movie_id);
 
-    void addMovie(MovieDto newMovie) throws ServiceUnavailableException;
+    Movie addMovie(MovieDto newMovie) throws ServiceUnavailableException;
 
     void deleteMovie(String movie_id);
 

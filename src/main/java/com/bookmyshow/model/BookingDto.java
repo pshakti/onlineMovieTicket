@@ -1,25 +1,27 @@
 package com.bookmyshow.model;
 
+import com.bookmyshow.entity.ShowDetails;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Data
 public class BookingDto {
 
-    private Long movieId;
+    private String movieId;
 
-    private String movieName;
+    private String theaterId;
 
-    private ScreeningDto screening;
+    private String screeningId;
 
-    private UserDto user;
+    private String userId;
 
-    private LocalTime bookingTime;
+    private LocalDate showDate;
 
-    private boolean isBooked;
+    private Double showTime;
 
-    private boolean isActive;
+    private double amount;
 
     private SeatBookedDto bookedSeats;
 }

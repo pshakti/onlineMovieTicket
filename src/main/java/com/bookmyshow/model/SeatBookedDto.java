@@ -10,11 +10,8 @@ import java.util.Set;
 @Data
 public class SeatBookedDto {
 
-    @Id
-    private Long seatBookedId;
+    private int noOfSeat;
 
-    private String noOfSeat;
-
-    private Set<Integer> seatId;
+    private Set<Integer> seatIds;
 
 }

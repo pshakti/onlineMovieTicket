@@ -14,7 +14,6 @@ import java.util.Set;
 public class Movie {
 
     @Id
-    @Field("_id")
     private String movieId;
     private String movieName;
     private String genre;

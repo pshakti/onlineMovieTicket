@@ -30,7 +30,7 @@ public class TheatreController {
 
     @PostMapping("/theatre")
     public ResponseEntity addTheatres(@RequestBody AddNewTheaterRequest addNewTheaterRequest) throws ServiceUnavailableException {
-            theatreService.addNewTheatre(addNewTheaterRequest);
-        return ResponseEntity.created(URI.create("")).body("New theater has been added successfully");
+        Theatre theatre=theatreService.addNewTheatre(addNewTheaterRequest);
+        return ResponseEntity.created(URI.create("")).body(theatre);
     }
 }

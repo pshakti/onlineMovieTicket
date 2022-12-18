@@ -1,5 +1,7 @@
 package com.bookmyshow.service.impl;
 
+import com.bookmyshow.entity.Auditorium;
+import com.bookmyshow.entity.Screening;
 import com.bookmyshow.entity.Theatre;
 import com.bookmyshow.model.AddNewTheaterRequest;
 import com.bookmyshow.repository.TheatreRepository;
@@ -11,6 +13,9 @@ import org.springframework.stereotype.Service;
 
 import javax.naming.ServiceUnavailableException;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Slf4j
@@ -28,15 +33,22 @@ public class TheatreServiceImpl implements TheatreService {
     }
 
     @Override
-    public String addNewTheatre(AddNewTheaterRequest newTheatre) throws ServiceUnavailableException {
+    public Theatre addNewTheatre(AddNewTheaterRequest newTheatre) throws ServiceUnavailableException {
         Theatre theatreObj=modelMapper.map(newTheatre,Theatre.class);
         try {
-            theatreRepository.save(theatreObj);
+            theatreObj.setId(UUID.randomUUID().toString());
+            List<Auditorium> screenings= theatreObj.getAuditorium().stream().map(i->
+            {
+                i.setScreenId(UUID.randomUUID().toString());
+                return i;
+            }).collect(Collectors.toList());
+            theatreObj.setAuditorium(screenings);
+            theatreObj=  theatreRepository.save(theatreObj);
         }catch (Exception e)
         {
             log.info("Exception while adding the new theatre in dataBase , EXCEPTION {}",e.getMessage());
             throw new ServiceUnavailableException();
         }
-        return "Success";
+        return theatreObj;
     }
 }

@@ -13,8 +13,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class User {
 
     @Id
-    @Field("_id")
-    private String id;
+    private String userId;
 
     private String userName;
 
